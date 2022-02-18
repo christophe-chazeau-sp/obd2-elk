@@ -1,0 +1,36 @@
+{
+  "index_patterns" : [ "obd2*" ],
+  "settings" : {
+    "index" : {
+      "number_of_shards" : "1"
+    }
+  },
+  "mappings" : {
+    "dynamic_templates": [
+      {
+        "i_can_haz_float_bms": {
+          "path_match":   "obd2.bms.*",
+          "mapping": {
+            "type": "float"
+          }
+	}
+      },
+      {
+        "i_can_haz_floati_hvac": {
+          "path_match":   "obd2.hvac.*",
+          "mapping": {
+            "type": "float"
+          }
+	}
+      },
+      {
+        "i_can_haz_floati_tpms": {
+          "path_match":   "obd2.tpms.*",
+          "mapping": {
+            "type": "float"
+          }
+	}
+      }
+    ]
+  }
+}
